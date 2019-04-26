@@ -1,0 +1,47 @@
+
+"Math Challenge" is a complete multi platform mathematical skill game ready to be published with random expression generation. 
+
+It is optimized for mobile (iOS iPhone , Android, Windows Mobile) .
+
+How to play? 
+
+For every question there is one correct answer and 3 wrong answer , click the correct one to get score.
+
+Clean, simple and easy to understand commented C# code 
+Easy to understand, perfect to learn. 
+
+This pack includes: 
+
+- Full game ready to use with addictive gameplay 
+- Optimized for Mobile 
+- Touch input for mobile and mouse/keyboard input for web and desktop 
+- Infinite question generation system 
+- Input touch controller for mobile.
+- Music and Sound FX included 
+- Simple to Customize 
+
+Try it before you buy:
+Available at play store
+https://play.google.com/store/apps/details?id=com.MadFireOn.MathsChallenge
+
+
+
+
+Features
+
+
+
+ Full game ready to use with addictive gameplay 
+- Optimized for Mobile 
+- Touch input for mobile and mouse/keyboard input for web and desktop 
+- Infinite question generation system 
+- Input touch controller for mobile 
+- Mouse input for desktop (mac and windows). 
+- Music and Sound FX included 
+- Simple to Customize
+- Easy to add "Unity ADS"
+- Share score screen shot with friends on facebook , twitter , WhatsApp. 
+
+Skin
+
+Change the sprite of buttons and background as per you requirement

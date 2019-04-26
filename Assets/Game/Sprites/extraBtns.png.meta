@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 07554e6279ce1f548becad3252cb1283
+timeCreated: 1469248789
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: freeze_click
+    21300002: freeze
+    21300004: ads_click
+    21300006: ads
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: freeze_click
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 133
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 32}
+        - {x: -64, y: -32}
+        - {x: 64, y: -32}
+        - {x: 64, y: 32}
+    - name: freeze
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 132
+        width: 128
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 33}
+        - {x: -64, y: -30}
+        - {x: -61, y: -33}
+        - {x: 64, y: -33}
+        - {x: 64, y: 31}
+        - {x: 61, y: 33}
+    - name: ads_click
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 128
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 62.5}
+        - {x: -49, y: 59.5}
+        - {x: -64, y: 29.5}
+        - {x: -64, y: -38.5}
+        - {x: -42, y: -62.5}
+        - {x: 36, y: -62.5}
+        - {x: 64, y: -45.5}
+        - {x: 64, y: 28.5}
+        - {x: 47, y: 62.5}
+    - name: ads
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 66}
+        - {x: -64, y: -66}
+        - {x: 64, y: -66}
+        - {x: 64, y: 66}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

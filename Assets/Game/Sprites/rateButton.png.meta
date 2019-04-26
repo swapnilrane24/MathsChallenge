@@ -1,0 +1,104 @@
+fileFormatVersion: 2
+guid: 60b8f40c52981ba4e9fa6af7a312dba0
+timeCreated: 1452779409
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rateButton_unpressed
+    21300002: rateButton_pressed
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 256
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: rateButton_unpressed
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 81
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 40}
+        - {x: -40.5, y: 34}
+        - {x: -40.5, y: -24}
+        - {x: -35.5, y: -40}
+        - {x: 35.5, y: -40}
+        - {x: 40.5, y: -26}
+        - {x: 40.5, y: 27}
+        - {x: 28.5, y: 40}
+    - name: rateButton_pressed
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2
+        width: 76
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: 38}
+        - {x: -21, y: 38}
+        - {x: -38, y: 32}
+        - {x: -38, y: -27}
+        - {x: -26, y: -38}
+        - {x: 24, y: -38}
+        - {x: 27, y: -37}
+        - {x: 38, y: -21}
+        - {x: 38, y: 18}
+        - {x: 36, y: 27}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
