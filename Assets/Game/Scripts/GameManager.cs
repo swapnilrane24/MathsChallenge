@@ -4,6 +4,15 @@ using System.IO; // this is required for input and output of data
 using System;
 using System.Runtime.Serialization.Formatters.Binary;//this is required to convert data into binary
 
+public enum GameMode
+{
+    Addition,
+    Subtraction,
+    Multiplication,
+    Division,
+    Mix
+}
+
 public class GameManager : MonoBehaviour {
 
     //we make static so in games only one script is name as this
@@ -17,7 +26,7 @@ public class GameManager : MonoBehaviour {
     public int currentScore;
     public bool isGameOver;
 
-    public int currentMode;
+    public GameMode currentMode;
 	public int gamesPlayed = 0;
 
 

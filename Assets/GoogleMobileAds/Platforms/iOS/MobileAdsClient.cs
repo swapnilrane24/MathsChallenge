@@ -1,3 +1,4 @@
+#if UNITY_IOS
 // Copyright (C) 2017 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_IOS
-
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -26,8 +25,9 @@ namespace GoogleMobileAds.iOS
     public class MobileAdsClient : IMobileAdsClient
     {
         private static MobileAdsClient instance = new MobileAdsClient();
-
+        private Action<IInitializationStatusClient> initCompleteAction;
         private IntPtr mobileAdsClientPtr;
+        internal delegate void GADUInitializationCompleteCallback(IntPtr mobileAdsClient, IntPtr initStatusClient);
 
         private MobileAdsClient()
         {
@@ -47,6 +47,17 @@ namespace GoogleMobileAds.iOS
             Externs.GADUInitialize(appId);
         }
 
+        public void Initialize(Action<IInitializationStatusClient> initCompleteAction)
+        {
+            this.initCompleteAction = initCompleteAction;
+            Externs.GADUInitializeWithCallback(this.mobileAdsClientPtr, InitializationCompleteCallback);
+        }
+
+        public void DisableMediationInitialization()
+        {
+            Externs.GADUDisableMediationInitialization();
+        }
+
         public void SetApplicationVolume(float volume)
         {
             Externs.GADUSetApplicationVolume(volume);
@@ -57,9 +68,41 @@ namespace GoogleMobileAds.iOS
             Externs.GADUSetApplicationMuted(muted);
         }
 
+        public void SetRequestConfiguration(RequestConfiguration requestConfiguration)
+        {
+            RequestConfigurationClient.SetRequestConfiguration(requestConfiguration);
+
+        }
+
+        public RequestConfiguration GetRequestConfiguration()
+        {
+            return RequestConfigurationClient.GetRequestConfiguration();
+        }
+
         public void SetiOSAppPauseOnBackground(bool pause)
         {
             Externs.GADUSetiOSAppPauseOnBackground(pause);
+        }
+
+        public float GetDeviceScale()
+        {
+            return Externs.GADUDeviceScale();
+        }
+
+        public int GetDeviceSafeWidth()
+        {
+            return Externs.GADUDeviceSafeWidth();
+        }
+
+        [MonoPInvokeCallback(typeof(GADUInitializationCompleteCallback))]
+        private static void InitializationCompleteCallback(IntPtr mobileAdsClient, IntPtr initStatus)
+        {
+            MobileAdsClient client = IntPtrToMobileAdsClient(mobileAdsClient);
+            if (client.initCompleteAction != null)
+            {
+                IInitializationStatusClient statusClient = new InitializationStatusClient(initStatus);
+                client.initCompleteAction(statusClient);
+            }
         }
 
         private static MobileAdsClient IntPtrToMobileAdsClient(IntPtr mobileAdsClient)
@@ -79,5 +122,4 @@ namespace GoogleMobileAds.iOS
         }
     }
 }
-
 #endif

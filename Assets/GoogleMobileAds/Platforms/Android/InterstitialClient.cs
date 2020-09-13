@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_ANDROID
-
 using System;
 
 using GoogleMobileAds.Api;
@@ -44,6 +42,8 @@ namespace GoogleMobileAds.Android
         public event EventHandler<EventArgs> OnAdClosed;
 
         public event EventHandler<EventArgs> OnAdLeavingApplication;
+
+        public event EventHandler<AdValueEventArgs> OnPaidEvent;
 
         #region IGoogleMobileAdsInterstitialClient implementation
 
@@ -81,6 +81,13 @@ namespace GoogleMobileAds.Android
         public string MediationAdapterClassName()
         {
             return this.interstitial.Call<string>("getMediationAdapterClassName");
+        }
+
+        // Returns ad request response info
+        public IResponseInfoClient GetResponseInfoClient()
+        {
+
+            return new ResponseInfoClient(this.interstitial);
         }
 
         #endregion
@@ -131,8 +138,26 @@ namespace GoogleMobileAds.Android
             }
         }
 
+        public void onPaidEvent(int precision, long valueInMicros, string currencyCode)
+        {
+            if (this.OnPaidEvent != null)
+            {
+                AdValue adValue = new AdValue()
+                {
+                    Precision = (AdValue.PrecisionType)precision,
+                    Value = valueInMicros,
+                    CurrencyCode = currencyCode
+                };
+                AdValueEventArgs args = new AdValueEventArgs()
+                {
+                    AdValue = adValue
+                };
+
+                this.OnPaidEvent(this, args);
+            }
+        }
+
+
         #endregion
     }
 }
-
-#endif

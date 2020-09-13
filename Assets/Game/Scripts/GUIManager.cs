@@ -17,12 +17,14 @@ public class GUIManager : MonoBehaviour {
     public Text hiScoreOverText;
 
     //ref to game over panel
-    public GameObject gameOverMenu;
+    //public GameObject gameOverMenu;
     //ref to game over panel animator
     public Animator gameOverAnim;
 
     //ref to background music
     private AudioSource bgMusic;
+
+    private bool gameIsOver = false;
 
 	//this is used to show ads after specific amount of game overs like 5
 	public int AdsAfterGameOver = 5;
@@ -44,15 +46,16 @@ public class GUIManager : MonoBehaviour {
 
         //we get the audioSource attached to this object
         bgMusic = GetComponent<AudioSource>();
+        GameManager.singleton.currentScore = 0;
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
 		if (GameManager.singleton.gamesPlayed >= AdsAfterGameOver)
 		{
-			AdmobAdsManager.instance.ShowInterstitial ();
+			AdmobAdsManager.instance.ShowInterstitialAd();
 			GameManager.singleton.gamesPlayed = 0;
 		}
 
@@ -66,16 +69,59 @@ public class GUIManager : MonoBehaviour {
         //we check if the game is over 
         if (GameManager.singleton.isGameOver == true)
         {
-            //if yes the we stop the music and diplay game over panel
-            bgMusic.Stop();
+            if (!gameIsOver)
+            {
+                gameIsOver = true;
+                //if yes the we stop the music and diplay game over panel
+                bgMusic.Stop();
 
-            //we update the score text and hi score text
-            scoreOverText.text = "" + GameManager.singleton.currentScore;
+                //we update the score text and hi score text
+                scoreOverText.text = "" + GameManager.singleton.currentScore;
 
-            hiScoreOverText.text = "" + GameManager.singleton.hiScore;
+                //we play the slideIn animation
+                gameOverAnim.Play("SlideIn");
+                int highScore = 0;
+                switch (GameManager.singleton.currentMode)
+                {
+                    case GameMode.Addition:
+                        highScore = PlayerPrefs.GetInt(GameMode.Addition.ToString(), 0);
+                        if (GameManager.singleton.currentScore > highScore)
+                        {
+                            PlayerPrefs.SetInt(GameMode.Addition.ToString(), GameManager.singleton.currentScore);
+                        }
+                        break;
+                    case GameMode.Subtraction:
+                        highScore = PlayerPrefs.GetInt(GameMode.Subtraction.ToString(), 0);
+                        if (GameManager.singleton.currentScore > highScore)
+                        {
+                            PlayerPrefs.SetInt(GameMode.Subtraction.ToString(), GameManager.singleton.currentScore);
+                        }
+                        break;
+                    case GameMode.Multiplication:
+                        highScore = PlayerPrefs.GetInt(GameMode.Multiplication.ToString(), 0);
+                        if (GameManager.singleton.currentScore > highScore)
+                        {
+                            PlayerPrefs.SetInt(GameMode.Multiplication.ToString(), GameManager.singleton.currentScore);
+                        }
+                        break;
+                    case GameMode.Division:
+                        highScore = PlayerPrefs.GetInt(GameMode.Division.ToString(), 0);
+                        if (GameManager.singleton.currentScore > highScore)
+                        {
+                            PlayerPrefs.SetInt(GameMode.Division.ToString(), GameManager.singleton.currentScore);
+                        }
+                        break;
+                    case GameMode.Mix:
+                        highScore = PlayerPrefs.GetInt(GameMode.Mix.ToString(), 0);
+                        if (GameManager.singleton.currentScore > highScore)
+                        {
+                            PlayerPrefs.SetInt(GameMode.Mix.ToString(), GameManager.singleton.currentScore);
+                        }
+                        break;
+                }
 
-            //we play the slideIn animation
-            gameOverAnim.Play("SlideIn");
+                hiScoreOverText.text = highScore.ToString();
+            }
         }
 	}
 

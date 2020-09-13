@@ -10,19 +10,6 @@ public class MathsAndAnswerScript : MonoBehaviour {
     //we make this script instance
     public static MathsAndAnswerScript instance;
 
-    //its an enum which we help use to identify the current mode of game 
-    public enum MathsType
-    {
-        addition,
-        subtraction,
-        multiplication,
-        division,
-        mix
-    }
-
-    //we make a variable of MathsType
-    public MathsType mathsType;
-
     //2 private floats this are the question values a and b
     private float a, b ;
     //the variable for answer value
@@ -39,7 +26,7 @@ public class MathsAndAnswerScript : MonoBehaviour {
     public string tagOfButton;
 
     //varible to check whihc mode is this
-    private int currentMode;
+    private GameMode currentMode;
 
     //ref to the time for each question
     public float timeForQuestion;
@@ -87,38 +74,8 @@ public class MathsAndAnswerScript : MonoBehaviour {
             currentMode = GameManager.singleton.currentMode;
         }
 
-        //we call the methods
-        CurrentMode();
-
         MathsProblem();
 
-    }
-
-    //this method keeps the track of mode 
-    void CurrentMode()
-    {
-        if (currentMode == 1)
-        {
-            //depending on the currentmode value we assign the mode
-            mathsType = MathsType.addition;
-
-        }
-        else if (currentMode == 2)
-        {
-            mathsType = MathsType.subtraction;
-        }
-        else if (currentMode == 3)
-        {
-            mathsType = MathsType.multiplication;
-        }
-        else if (currentMode == 4)
-        {
-            mathsType = MathsType.division;
-        }
-        else if (currentMode == 5)
-        {
-            mathsType = MathsType.mix;
-        }
     }
 	
 	// Update is called once per frame
@@ -152,35 +109,21 @@ public class MathsAndAnswerScript : MonoBehaviour {
     //eg for addition mode it will only call addition method
     public void MathsProblem()
     {
-        //switch case is used to assign method
-        switch (mathsType)
+        switch (currentMode)
         {
-            case (MathsType.addition):
-
+            case GameMode.Addition:
                 AdditionMethod();
-
                 break;
-
-            case (MathsType.subtraction):
-
+            case GameMode.Subtraction:
                 SubtractionMethod();
-
                 break;
-
-            case (MathsType.multiplication):
-
+            case GameMode.Multiplication:
                 MultiplicationMethod();
-
                 break;
-
-            case (MathsType.division):
-
+            case GameMode.Division:
                 DivisionMethod();
-
                 break;
-
-            case (MathsType.mix):
-
+            case GameMode.Mix:
                 int r = Random.Range(0, 4);
 
                 if (r == 0)
@@ -199,11 +142,7 @@ public class MathsAndAnswerScript : MonoBehaviour {
                 {
                     DivisionMethod();
                 }
-
-
-
                 break;
-
         }
     }
 
